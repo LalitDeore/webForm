@@ -1,0 +1,19 @@
+.font-design{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 13px 0 5px 5px;
+}
+
+.bold, .italic, .underline{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 35px;
+    height: 30px;
+}
+
+.bold:hover, .italic:hover, .underline:hover{
+    background: rgb(26, 26, 26);
+}

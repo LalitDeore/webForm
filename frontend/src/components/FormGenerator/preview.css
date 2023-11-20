@@ -1,0 +1,85 @@
+.generatedFormContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    background-color: rgb(39, 41, 45);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .registration-form-title {
+    position: relative;
+  }
+  
+  .close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .main-title {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .main-subtitle {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .fieldName {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+  }
+  
+  .is-required {
+    color: red;
+  }
+  
+  .file-input,
+  .input-bar {
+    height: 30px;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: rgb(39, 41, 45);
+  }
+  
+  .options-checkbox-group {
+    margin-top: 10px;
+  }
+  
+  .option-box {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+  }
+  
+  .checkbox-label {
+    margin-left: 10px;
+  }
+  
+  .checkboxOptions {
+    width: fit-content;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .generatedFormContainer {
+      padding: 10px;
+    }
+  }
+  

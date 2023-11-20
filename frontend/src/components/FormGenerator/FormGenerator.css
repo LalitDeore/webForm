@@ -1,0 +1,372 @@
+* {
+  font-size: 18px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.whole-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  margin: auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.registration-form {
+  width: 100%;
+  max-width: 800px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.title {
+  gap: 10px;
+  border-bottom: 2px solid #555;
+  padding-bottom: 20px;
+}
+
+.standard-button,
+.url-generator {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-image: linear-gradient(to right, rgb(248, 106, 62), rgb(243, 64, 121));
+  border-radius: 25px !important;
+}
+.standard-button:hover,
+.url-generator :hover{
+  color: white !important;
+}
+
+.url-generator:hover {
+  color: white;
+}
+
+.field-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.field-box input {
+  height: 30px;
+  padding: 8px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: red;
+  height: 20px;
+}
+
+.added-field-box {
+  border: 1px solid #555;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .whole-form {
+    width: 95%;
+  }
+
+  .added-field-box {
+    flex-direction: column;
+  }
+}
+
+.both-button {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 60px;
+}
+
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  margin-left: 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  appearance: none; 
+}
+
+
+.slider {
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  background-color: #f27627; 
+  transition: 0.4s;
+  border-radius: 34px;
+  display: inline-block;
+  border: 1px solid #f27627; 
+}
+
+.switch input:checked + .slider {
+  width: 40px; 
+  background-color: #f27627;
+  border: 1px solid #f27627; 
+}
+
+
+.switch input + .slider {
+  background-color: #ccc; /* or any default color */
+}
+
+
+.switch input + .slider::before {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  margin-top: 1px;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px); /* Adjusted the translation */
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #f27627;
+}
+
+
+.box {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.require-text {
+  margin-left: 10px;
+  width: 100px !important;
+}
+
+.file-box {
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.all-added-fields {
+  margin-top: 30px;
+}
+ 
+.button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  height: 20px;
+  width: 80px;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+#url{
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.button :hover{
+  background-color: #1a1a1a;
+}
+
+.url-and-button{
+  margin-top: 20px;
+}
+
+.modal-preview{
+  background-color: transparent;
+}
+.preview-button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+
+  background-image: linear-gradient(to right, rgb(248, 106, 62), rgb(243, 64, 121));
+  border-radius: 25px !important;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 25px !important;
+}
+
+.multiple-options-block{
+  display: flex;
+  flex-direction: column;
+}
+
+.all-user-input{
+  display: flex;
+  flex-direction: row;
+  gap: 25px
+}
+
+.require-text-1{
+  margin-left: 10px;
+  width: 140px;
+  height: 50px;
+}
+
+.option-box{
+  margin-left: 50px !important;
+  margin-top: 10px;
+}
+
+.add-option-button{
+  border: none;
+  background-color: transparent;
+  color:orange;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100px;
+}
+
+.delete-input-field{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-left: 5px;
+}
+.switcher{
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .whole-form {
+    width: 95%;
+  }
+
+  .added-field-box {
+    flex-direction: column;
+    padding: 15px; /* Add padding for better spacing */
+  }
+
+  .both-button {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .title {
+    flex-direction: column;
+  }
+
+  .box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .switch {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .all-added-fields {
+    margin-top: 20px;
+  }
+
+  .require-text,
+  .require-text-1 {
+    width: auto;
+    margin: 0;
+  }
+
+  .file-box {
+    margin-left: 0;
+  }
+
+  .modal-preview {
+    width: 90%;
+  }
+
+  .added-field-box input {
+    width: 100%; 
+  }
+
+  .added-field-box button {
+    margin-top: 10px; 
+  }
+
+  .multiple-options-block {
+    width: 100%;
+  }
+  .all-user-input {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .require-text,
+  .require-text-1,
+  .file-box,
+  .option-box {
+    margin-left: 0 !important;
+  }
+
+  .switch {
+    margin-left: 0 !important;
+  }
+
+  .added-field-box {
+    padding: 15px !important;
+  }
+}

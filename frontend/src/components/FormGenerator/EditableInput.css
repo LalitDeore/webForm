@@ -1,0 +1,71 @@
+.all-editable-input {
+  width: 100%;
+}
+
+.change-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.change-input input {
+  display: inline-block;
+  border: none;
+  background: none;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.change-input input::placeholder{
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none  !important;
+}
+
+.change-input input.change-input::placeholder {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none !important;
+}
+
+.change-input span svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+
+.change-input input[readonly] {
+  border-bottom: 2px solid #555;
+  cursor: pointer;
+}
+
+
+.change-input input:focus {
+  border-bottom: 2px solid #d95f15; 
+}
+
+.editable-icon {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .change-input input:focus {
+    width: 100%;
+  }
+}
+
+.change-input input{
+  margin-right: 15px;
+}
+

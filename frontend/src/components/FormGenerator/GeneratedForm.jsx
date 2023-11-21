@@ -166,10 +166,10 @@ const GeneratedForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="registration-form-title">
           <div className="title">
-            <span style={{ fontSize: "45px" }} className="main-title">
+            <span style={{ fontSize: "30px" }} className="main-title">
               {data.title}
             </span>
-            <span style={{ fontSize: "25px" }} className="main-subtitle">
+            <span style={{ fontSize: "18px" }} className="main-subtitle">
               {data.subTitle}
             </span>
           </div>

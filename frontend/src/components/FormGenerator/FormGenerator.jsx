@@ -133,7 +133,7 @@ const FormGenerator = () => {
   };
 
   const copy = async () => {
-    const updatedText = `http://localhost:3000/forms/${formURL}`;
+    const updatedText = `https://web-form-git-main-lalits-projects-8efafb24.vercel.app/forms/${formURL}`;
     await navigator.clipboard.writeText(updatedText);
     setText(updatedText);
     toast.success("URL copied!", { position: toast.POSITION.TOP_RIGHT });
@@ -413,7 +413,7 @@ const FormGenerator = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {`http://localhost:3000/forms/${formURL}`}
+                {`https://web-form-git-main-lalits-projects-8efafb24.vercel.app/forms/${formURL}`}
               </a>
             </div>
             <button className="button" onClick={copy}>

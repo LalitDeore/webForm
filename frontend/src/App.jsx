@@ -209,7 +209,7 @@ const App = (message, props) => {
       <Header
         notifications={notifications}
         setNotifications={setNotifications}
-        checkLogin={checkLogin}
+        // checkLogin={checkLogin}
         cookies={cookies}
         removeCookie={removeCookie}
         isLoaded={isLoaded}
@@ -417,13 +417,13 @@ const App = (message, props) => {
           path="/workflows"
           element={
             <Workflows
-              checkLogin={checkLogin}
+              // checkLogin={checkLogin}
               cookies={cookies}
               removeCookie={removeCookie}
               isLoaded={isLoaded}
               isLoggedIn={isLoggedIn}
               globalUrl={globalUrl}
-              cookies={cookies}
+              // cookies={cookies}
               userdata={userdata}
               {...props}
             />
@@ -601,7 +601,6 @@ const App = (message, props) => {
               globalUrl={globalUrl}
               cookies={cookies}
               userdata={userdata}
-              checkLogin={checkLogin}
               {...props}
             />
           }

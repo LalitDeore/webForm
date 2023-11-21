@@ -1,120 +1,56 @@
-<h1 align="center">
+# Web Form Generator
 
-[![Shuffle Logo](https://github.com/Shuffle/Shuffle/blob/main/frontend/public/images/Shuffle_logo_new.png)](https://shuffler.io)
-
-Shuffle Automation
-
-[![CodeQL](https://github.com/Shuffle/Shuffle/actions/workflows/codeql-analysis.yml/badge.svg?branch=launch)](https://github.com/Shuffle/Shuffle/actions/workflows/codeql-analysis.yml)
-[![Autobuild](https://github.com/Shuffle/Shuffle/actions/workflows/dockerbuild.yaml/badge.svg?branch=launch)](https://github.com/Shuffle/Shuffle/actions/workflows/dockerbuild.yaml)
-
-</h1><h4 align="center">
-
-[Shuffle](https://shuffler.io) is an automation platform for and by the community, focusing on accessibility for anyone to automate. Security operations is complex, but it doesn't have to be.
-
-[_Key Features_](https://shuffler.io/docs/features) —
-[_Community & Support_](https://discord.gg/B2CBzUm) —
-[_Documentation_](https://shuffler.io/docs) —
-[_Getting Started_](https://shuffler.io/docs/getting_started) —
-[_Development_](https://github.com/frikky/Shuffle/blob/master/.github/CONTRIBUTING.md) 
-
-Follow us on Twitter at [@shuffleio](https://twitter.com/shuffleio).
-
-</h4>
-
-![Example Shuffle webhook integration](https://github.com/frikky/Shuffle/blob/main/frontend/src/assets/img/github_shuffle_img.png)
-
-## Try it
-* Self-hosted: Check out the [installation guide](https://github.com/frikky/shuffle/blob/master/.github/install-guide.md)
-* Cloud: Register at https://shuffler.io/register and get cooking (missing a lot of features)
-
-Please consider [sponsoring](https://github.com/sponsors/frikky) the project if you want to see more rapid development.
-
-## Support
-* [Discord](https://discord.gg/B2CBzUm)
-* [Twitter](https://twitter.com/shuffleio)
-* [Email](mailto:frikky@shuffler.io)
-* [Open issue](https://github.com/frikky/Shuffle/issues/new)
-* [Shuffler.io](https://shuffler.io/contact)
-
-## Blogposts
-* [1. Introducing Shuffle](https://medium.com/security-operation-capybara/introducing-shuffle-an-open-source-soar-platform-part-1-58a529de7d12)
-* [2. Getting started with Shuffle](https://medium.com/security-operation-capybara/getting-started-with-shuffle-an-open-source-soar-platform-part-2-1d7c67a64244)
-* [3. Integrating Shuffle with Virustotal and TheHive](https://medium.com/@Frikkylikeme/integrating-shuffle-with-virustotal-and-thehive-open-source-soar-part-3-8e2e0d3396a9)
-* [4. Real-time executions with TheHive, Cortex and MISP](https://medium.com/@Frikkylikeme/indicators-and-webhooks-with-thehive-cortex-and-misp-open-source-soar-part-4-f70cde942e59)
-
-## Documentation
-[Documentation](https://shuffler.io/docs) can be found on [https://shuffler.io/docs](https://shuffler.io/docs) and is written here: [https://github.com/frikky/shuffle-docs](https://github.com/frikky/shuffle-docs).
-
-### Setting up a local development environment
-
-Please follow the steps mentioned [here](https://github.com/Shuffle/Shuffle/blob/main/.github/install-guide.md#local-development-installation)!
-
-## Related repositories
-* OpenAPI apps: [https://github.com/frikky/security-openapis](https://github.com/frikky/security-openapis)
-* Documentation: [https://github.com/frikky/shuffle-docs](https://github.com/frikky/shuffle-docs)
-* Workflows: [https://github.com/frikky/shuffle-workflows](https://github.com/frikky/shuffle-workflows)
-* Python apps: [https://github.com/frikky/shuffle-apps](https://github.com/frikky/shuffle-apps)
+Web Form Generator is a React application that allows users to create dynamic forms, generate unique form URLs, and collect submissions.
 
 ## Features
-* Simple, feature rich [workflow editor](https://shuffler.io/docs/workflows)
-* App creator using [OpenAPI](https://github.com/frikky/OpenAPI-security-definitions)
-* Premade apps for your security tools
-* Organization and sub-organization control
-* Hybrid resource sharing with shuffler.io (optional)
 
-## Website
-[https://shuffler.io](https://shuffler.io)
+- **Dynamic Form Creation:** Easily add and customize form fields.
+- **Form URL Generation:** Generate unique URLs for each form.
+- **Submission Handling:** Collect and handle form submissions.
+- **User Authentication:** Allow authenticated users to access and submit forms.
 
-## Contributing
-We want to make the world of cybersecurity more accessible and need all the help we can get. Send an email to [frikky@shuffler](mailto:frikky@shuffler.io) and we'll make sure to give you any training you may need.
+## Technologies Used
 
-These are the main areas to contribute in:
-* Frontend (ReactJS)
-* Backend (Golang)
-* App Creation (Python & GUI w/OpenAPI)
-* Documentation (Markdown)
-* Workflow creation (GUI & Conceptualizing) 
-* Content Creation (Blogs, videos etc) 
+- React
+- React Router
+- Shuffle for triggering mail workflow inside shuffle
+- Axios for HTTP requests
+- CSS for styling
+- node.js
+- Express.js
 
-Contributing guidelines are outlined [here](https://github.com/frikky/Shuffle/blob/master/.github/CONTRIBUTING.md).
+## Code Details
 
-## Contributors 
-![ICPL logo](https://github.com/Shuffle/Shuffle/blob/main/frontend/src/assets/img/icpl_logo.png)
+- For front-end i have write code at shuffle/frontend/src/formGenerator. This folder include all code of form generator. Form generator home page is set at /FormGenerator path.
+- For backend i have user node.js and express.js. Unique url is generated from backend and send it to the frontend and also work flow is trigger at backend. 
 
-**Shuffle**
-<a href="https://github.com/frikky/shuffle/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=frikky/shuffle" />
-</a>
 
-[**App magicians**](https://github.com/frikky/shuffle-apps)
-<a href="https://github.com/frikky/shuffle-apps/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=frikky/shuffle-apps" />
-</a>
+![Home Page](Images/home.png)
 
-## License
-All modular information related to Shuffle will be under MIT (anyone can use it for whatever purpose), with Shuffle itself using AGPLv3. 
+This is the home page. Here, users can add, and delete fields and bold, italic and underline field text. User can make field as required, can take input as file from user and also add multiple options for the input.
 
-Workflows: MIT
-Documentation: MIT
-Shuffle backend: AGPLv3 
-Apps, specification and App SDK: MIT
+![Generated URL](Images/url.png)
 
-## Architecture
-![Shuffle Architecture](https://github.com/frikky/Shuffle/blob/main/frontend/src/assets/img/shuffle_architecture.png)
+When user click on generate url a unique URL is generated from the backend. User can copy url by clicking copy button and share it with anyone. URL can be access anyone.
 
-### Repository overview 
-Below is the folder structure with a short explanation
-```bash
-├── README.md				# What you're reading right now
-├── backend					# Contains backend related code.
-│   ├── go-app 			# The backend golang webserver
-│   └── app_sdk			# The SDK used for apps
-├── frontend				# Contains frontend code. ReactJS, Material UI and cytoscape
-├── functions				# Has execution and extension resources, such as the Wazuh integration
-│   ├── onprem				# Code for onprem solutions
-│   │   ├── Orborus 	# Distributes execution locations
-│   │   ├── Worker		# Runs a workflow
-└ docker-compose.yml 	# Used for deployments
-```
+![Preview Form](Images/preview.png)
 
-[Get in touch](https://shuffler.io/contact), send a mail to [frikky@shuffler.io](mailto:frikky@shuffler.io) or poke me on twitter [@frikkylikeme](https://twitter.com/frikkylikeme)
+After add all required field user can preview form and if anything is missing than he can add field if required.
+
+![Generated Form](Images/generatedForm.png)
+
+When user click on form link he will re-directed to the form and fill all the details of the form and submit form.
+
+![Shuffle Work Flow](Images/workflow.png)
+
+In shuffle i have created work flow when user submit form this work flow is trigger. Think work flow consist of web hook url https://shuffler.io/api/v1/hooks/webhook_5e6467a6-113b-49df-90d7-4e701fb0d328 when user click on submit button this web hook is trigger and this web hook further make request to send mail on hello@shuffler.io .
+
+![Shuffle stored data](Images/formData.png)
+
+When user click on submit button it trigger work flow and form related data is stored inside the webhook JSON format.
+
+![Mail of submitted form](Images/email.jpg)
+
+This mail receive by triggering shuffle workflow. for this I have set my mail id. Further i have user updated shuffle mail id.
+
+

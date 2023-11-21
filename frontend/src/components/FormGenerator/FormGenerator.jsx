@@ -116,19 +116,16 @@ const FormGenerator = () => {
   const handleCheckFileChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      const updatedFields = prevFields.map((field) =>
-        field.id === id ? { ...field, isFile: isChecked } : field
+      return prevFields.map((field) =>
+        field.id === id
+          ? {
+              ...field,
+              isFile: isChecked,
+              isMultipleOption: false, // Disable multiple options when enabling file
+              options: [], // Reset options when enabling file
+            }
+          : field
       );
-
-      if (isChecked) {
-        return updatedFields.map((field) => ({
-          ...field,
-          isMultipleOption: false,
-          options: [],
-        }));
-      }
-
-      return updatedFields;
     });
   };
 
@@ -177,22 +174,16 @@ const FormGenerator = () => {
   const handleMultipleOptionChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      const updatedFields = prevFields.map((field) =>
-        field.id === id ? { ...field, isMultipleOption: isChecked } : field
+      return prevFields.map((field) =>
+        field.id === id
+          ? {
+              ...field,
+              isMultipleOption: isChecked,
+              options: isChecked ? [] : field.options, // Reset options if enabling
+              isFile: false, // Disable file when enabling multiple options
+            }
+          : field
       );
-
-      if (isChecked) {
-        return updatedFields.map((field) => ({
-          ...field,
-          options:
-            field.isMultipleOption && field.options.length === 0
-              ? []
-              : field.options,
-          isFile: false,
-        }));
-      }
-
-      return updatedFields;
     });
   };
 

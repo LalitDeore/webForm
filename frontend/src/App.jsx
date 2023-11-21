@@ -222,8 +222,8 @@ const App = (message, props) => {
       {/*
         <div style={{ height: 60 }} />
 				*/}
-      {/* <Routes>
-        <Route
+      <Routes>
+        {/* <Route
           exact
           path="/login"
           element={
@@ -622,39 +622,9 @@ const App = (message, props) => {
             />
           }
         />
-        <Route
-          exact
-          path="/FormGenerator"
-          element={
-            <FormGenerator
-              isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
-              register={true}
-              isLoaded={isLoaded}
-              globalUrl={globalUrl}
-              setCookie={setCookie}
-              cookies={cookies}
-              {...props}
-            />
-          }
-        />
+        <Route exact path="/FormGenerator" element={<FormGenerator />} />
 
-        <Route
-          exact
-          path="/forms/:id"
-          element={
-            <GeneratedForm
-              isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
-              register={true}
-              isLoaded={isLoaded}
-              globalUrl={globalUrl}
-              setCookie={setCookie}
-              cookies={cookies}
-              {...props}
-            />
-          }
-        />
+        <Route exact path="/forms/:id" element={<GeneratedForm />} />
       </Routes>
     </div>
   );

@@ -223,7 +223,7 @@ const App = (message, props) => {
         <div style={{ height: 60 }} />
 				*/}
       <Routes>
-        {/* <Route
+        <Route
           exact
           path="/login"
           element={
@@ -235,12 +235,12 @@ const App = (message, props) => {
               globalUrl={globalUrl}
               setCookie={setCookie}
               cookies={cookies}
-              checkLogin={checkLogin}
+              // checkLogin={checkLogin}
               {...props}
             />
           }
-        /> */}
-        {/* <Route
+        />
+        <Route
           exact
           path="/admin"
           element={
@@ -253,11 +253,11 @@ const App = (message, props) => {
               globalUrl={globalUrl}
               setCookie={setCookie}
               cookies={cookies}
-              checkLogin={checkLogin}
+              // checkLogin={checkLogin}
               {...props}
             />
           }
-        /> */}
+        />
         <Route
           exact
           path="/search"

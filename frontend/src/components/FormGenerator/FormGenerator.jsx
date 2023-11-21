@@ -20,12 +20,12 @@ const FormGenerator = () => {
   const styleOfSection = {
     borderBottom: "1px solid grey",
     color: "white",
-    fontSize: "45px",
+    fontSize: "30px",
   };
   const styleOfSubTitle = {
     borderBottom: "1px solid grey",
     color: "white",
-    fontSize: "25px",
+    fontSize: "18px",
     marginTop: "15px",
     marginBottom: "10px",
   };
@@ -116,21 +116,24 @@ const FormGenerator = () => {
   const handleCheckFileChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      return prevFields.map((field) =>
-        field.id === id
-          ? {
-              ...field,
-              isFile: isChecked,
-              isMultipleOption: false,
-              options: [],
-            }
-          : field
+      const updatedFields = prevFields.map((field) =>
+        field.id === id ? { ...field, isFile: isChecked } : field
       );
+
+      if (isChecked) {
+        return updatedFields.map((field) => ({
+          ...field,
+          isMultipleOption: false,
+          options: [],
+        }));
+      }
+
+      return updatedFields;
     });
   };
 
   const copy = async () => {
-    const updatedText = `https://webform-te9r.onrender.com/forms/${formURL}`;
+    const updatedText = `http://localhost:3000/forms/${formURL}`;
     await navigator.clipboard.writeText(updatedText);
     setText(updatedText);
     toast.success("URL copied!", { position: toast.POSITION.TOP_RIGHT });
@@ -147,13 +150,14 @@ const FormGenerator = () => {
 
   const addOption = (e, index) => {
     e.preventDefault();
-    setAddFields((prevFields) =>
-      prevFields.map((field) =>
-        field.id === index
-          ? { ...field, options: [...field.options, ""] }
-          : field
-      )
-    );
+    setAddFields((prevFields) => {
+      const updatedFields = [...prevFields];
+      updatedFields[index] = {
+        ...updatedFields[index],
+        options: [...updatedFields[index].options, ""],
+      };
+      return updatedFields;
+    });
   };
 
   const handleOptionChange = (e, index, optionIndex) => {
@@ -174,19 +178,24 @@ const FormGenerator = () => {
   const handleMultipleOptionChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      return prevFields.map((field) =>
-        field.id === id
-          ? {
-              ...field,
-              isMultipleOption: isChecked,
-              options: isChecked ? [] : field.options, // Reset options if enabling
-              isFile: false, // Disable file when enabling multiple options
-            }
-          : field
+      const updatedFields = prevFields.map((field) =>
+        field.id === id ? { ...field, isMultipleOption: isChecked } : field
       );
+      if (isChecked) {
+        return updatedFields.map((field) => ({
+          ...field,
+          options:
+            field.isMultipleOption && field.options.length === 0
+              ? [""]
+              : field.options,
+          isFile: false,
+        }));
+      }
+
+      return updatedFields;
     });
   };
-
+  console.log(addFields);
   const deleteOption = (event, index, optionIndex) => {
     event.preventDefault();
     setAddFields((prevFields) =>
@@ -200,9 +209,6 @@ const FormGenerator = () => {
       )
     );
   };
-
-  console.log(addFields);
-
   return (
     <div className="whole-form">
       <div className="registration-form">
@@ -263,10 +269,7 @@ const FormGenerator = () => {
                         }}
                       />
                       <div className="all-user-input">
-                        <div
-                          className="switch option-box"
-                          title="Mark field as Required"
-                        >
+                        <div className="switch" title="Mark field as Required">
                           <label className="switcher">
                             <input
                               type="checkbox"
@@ -365,7 +368,7 @@ const FormGenerator = () => {
                         </button>
                       </div>
                     ) : (
-                      <input readOnly />
+                      <input className="readOnlyInput" readOnly />
                     )}
                   </div>
                 </div>

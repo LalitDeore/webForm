@@ -116,19 +116,16 @@ const FormGenerator = () => {
   const handleCheckFileChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      const updatedFields = prevFields.map((field) =>
-        field.id === id ? { ...field, isFile: isChecked } : field
+      return prevFields.map((field) =>
+        field.id === id
+          ? {
+              ...field,
+              isFile: isChecked,
+              isMultipleOption: false,
+              options: [],
+            }
+          : field
       );
-
-      if (isChecked) {
-        return updatedFields.map((field) => ({
-          ...field,
-          isMultipleOption: false,
-          options: [],
-        }));
-      }
-
-      return updatedFields;
     });
   };
 
@@ -178,21 +175,16 @@ const FormGenerator = () => {
   const handleMultipleOptionChange = (event, id) => {
     const isChecked = event.target.checked;
     setAddFields((prevFields) => {
-      const updatedFields = prevFields.map((field) =>
-        field.id === id ? { ...field, isMultipleOption: isChecked } : field
+      return prevFields.map((field) =>
+        field.id === id
+          ? {
+              ...field,
+              isMultipleOption: isChecked,
+              isFile: false,
+              options: isChecked ? [""] : [], // Initialize options if Multiple Options is checked
+            }
+          : field
       );
-      if (isChecked) {
-        return updatedFields.map((field) => ({
-          ...field,
-          options:
-            field.isMultipleOption && field.options.length === 0
-              ? [""]
-              : field.options,
-          isFile: false,
-        }));
-      }
-
-      return updatedFields;
     });
   };
   console.log(addFields);

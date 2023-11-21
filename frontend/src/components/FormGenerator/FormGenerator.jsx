@@ -181,7 +181,7 @@ const FormGenerator = () => {
               ...field,
               isMultipleOption: isChecked,
               isFile: false,
-              options: isChecked ? [""] : [], // Initialize options if Multiple Options is checked
+              options: isChecked ? [""] : [],
             }
           : field
       );

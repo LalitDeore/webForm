@@ -410,7 +410,7 @@ const FormGenerator = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {`http://localhost:3000/forms/${formURL}`}
+                {`https://web-form-git-main-lalits-projects-8efafb24.vercel.app/forms/${formURL}`}
               </a>
             </div>
             <button className="button" onClick={copy}>

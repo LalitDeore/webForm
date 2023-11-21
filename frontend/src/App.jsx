@@ -80,13 +80,13 @@ const App = (message, props) => {
       : window.location.pathname
   );
 
-  useEffect(() => {
-    if (dataset === false) {
-      getUserNotifications();
-      checkLogin();
-      setDataset(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (dataset === false) {
+  //     getUserNotifications();
+  //     // checkLogin();
+  //     setDataset(true);
+  //   }
+  // }, []);
 
   if (
     isLoaded &&
@@ -127,43 +127,43 @@ const App = (message, props) => {
       });
   };
 
-  const checkLogin = () => {
-    var baseurl = globalUrl;
-    fetch(`${globalUrl}/api/v1/getinfo`, {
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        var userInfo = {};
-        if (responseJson.success === true) {
-          //console.log("USER: ", responseJson);
+  // const checkLogin = () => {
+  //   var baseurl = globalUrl;
+  //   fetch(`${globalUrl}/api/v1/getinfo`, {
+  //     credentials: "include",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       var userInfo = {};
+  //       if (responseJson.success === true) {
+  //         //console.log("USER: ", responseJson);
 
-          userInfo = responseJson;
-          setIsLoggedIn(true);
-          //console.log("Cookies: ", cookies)
-          // Updating cookie every request
-          for (var key in responseJson["cookies"]) {
-            setCookie(
-              responseJson["cookies"][key].key,
-              responseJson["cookies"][key].value,
-              { path: "/" }
-            );
-          }
-        }
+  //         userInfo = responseJson;
+  //         setIsLoggedIn(true);
+  //         //console.log("Cookies: ", cookies)
+  //         // Updating cookie every request
+  //         for (var key in responseJson["cookies"]) {
+  //           setCookie(
+  //             responseJson["cookies"][key].key,
+  //             responseJson["cookies"][key].value,
+  //             { path: "/" }
+  //           );
+  //         }
+  //       }
 
-        // Handling Ethereum update
+  //       // Handling Ethereum update
 
-        //console.log("USER: ", userInfo)
-        setUserData(userInfo);
-        setIsLoaded(true);
-      })
-      .catch((error) => {
-        setIsLoaded(true);
-      });
-  };
+  //       //console.log("USER: ", userInfo)
+  //       setUserData(userInfo);
+  //       setIsLoaded(true);
+  //     })
+  //     .catch((error) => {
+  //       setIsLoaded(true);
+  //     });
+  // };
 
   // Dumb for content load (per now), but good for making the site not suddenly reload parts (ajax thingies)
 

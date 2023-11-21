@@ -58,7 +58,7 @@ const FormGenerator = () => {
     console.log({ formStructure: addFields, data: data });
     try {
       const response = await axios.post(
-        "http://localhost:3005/forms/generate",
+        "https://webform-te9r.onrender.com/forms/generate",
         {
           formStructure: addFields,
           data: data,
@@ -121,8 +121,8 @@ const FormGenerator = () => {
           ? {
               ...field,
               isFile: isChecked,
-              isMultipleOption: false, // Disable multiple options when enabling file
-              options: [], // Reset options when enabling file
+              isMultipleOption: false,
+              options: [],
             }
           : field
       );
@@ -130,7 +130,7 @@ const FormGenerator = () => {
   };
 
   const copy = async () => {
-    const updatedText = `http://localhost:3000/forms/${formURL}`;
+    const updatedText = `https://webform-te9r.onrender.com/forms/${formURL}`;
     await navigator.clipboard.writeText(updatedText);
     setText(updatedText);
     toast.success("URL copied!", { position: toast.POSITION.TOP_RIGHT });

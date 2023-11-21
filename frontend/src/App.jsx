@@ -222,7 +222,7 @@ const App = (message, props) => {
       {/*
         <div style={{ height: 60 }} />
 				*/}
-      <Routes>
+      {/* <Routes>
         <Route
           exact
           path="/login"
@@ -239,8 +239,8 @@ const App = (message, props) => {
               {...props}
             />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           exact
           path="/admin"
           element={
@@ -257,7 +257,7 @@ const App = (message, props) => {
               {...props}
             />
           }
-        />
+        /> */}
         <Route
           exact
           path="/search"

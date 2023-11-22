@@ -58,7 +58,7 @@ const FormGenerator = () => {
     console.log({ formStructure: addFields, data: data });
     try {
       const response = await axios.post(
-        "http://43.205.114.60:3005/forms/generate",
+        "https://webform-te9r.onrender.com/forms/generate",
         {
           formStructure: addFields,
           data: data,

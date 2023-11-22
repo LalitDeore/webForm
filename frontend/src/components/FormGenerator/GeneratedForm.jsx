@@ -19,7 +19,9 @@ const GeneratedForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://43.205.114.60:3005/forms/${id}`);
+        const response = await fetch(
+          `https://webform-te9r.onrender.com/forms/${id}`
+        );
         const responseData = await response.json();
         setFormData(responseData.formStructure || []);
         setData({

@@ -19,9 +19,7 @@ const GeneratedForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://webform-te9r.onrender.com/forms/${id}`
-        );
+        const response = await fetch(`http://localhost:3005/forms/${id}`);
         const responseData = await response.json();
         setFormData(responseData.formStructure || []);
         setData({
@@ -141,24 +139,53 @@ const GeneratedForm = () => {
 
     try {
       const response = await fetch(
-        `https://webform-te9r.onrender.com/forms/${id}`,
+        `https://webform-te9r.onrender.com/forms/submit`,
         {
           method: "POST",
-          body: formDataToSend,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            formStructure: formData,
+            data: userInput,
+          }),
         }
       );
 
-      const responseText = await response.text();
-      const responseData = JSON.parse(responseText);
+      const responseData = await response.json();
 
-      console.log(responseData);
       if (responseData.success) {
-        setSubmissionSuccess(true);
+        toast.success("Thank you for submitting the form!");
+
+        // Trigger Shuffle workflow
+        try {
+          const shuffleResponse = await fetch(
+            "https://shuffler.io/api/v1/hooks/webhook_5e6467a6-113b-49df-90d7-4e701fb0d328",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                form_data: formData, // Assuming formData is available in your component
+                user_input: userInput,
+              }),
+            }
+          );
+
+          const shuffleData = await shuffleResponse.json();
+          console.log("Shuffle API response:", shuffleData);
+        } catch (error) {
+          console.error("Error triggering Shuffle workflow:", error);
+        }
+      } else {
+        console.error("Form submission failed.");
+        toast.error("Form submission failed. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("An error occurred. Please try again.");
     }
-    toast.success("Thank you for submitting the form!");
   };
 
   return (

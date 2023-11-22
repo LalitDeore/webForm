@@ -55,7 +55,6 @@ const FormGenerator = () => {
   };
 
   const generateFormURL = async () => {
-    console.log({ formStructure: addFields, data: data });
     try {
       const response = await axios.post(
         "https://webform-te9r.onrender.com/forms/generate",

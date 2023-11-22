@@ -12,6 +12,7 @@ const formsData = {};
 app.use(cors());
 app.use(bodyParser.json());
 
+// Endpoint for generating form URL
 app.post("/forms/generate", async (req, res) => {
   const { v4: uuidv4 } = await import("uuid");
 
@@ -26,7 +27,18 @@ app.post("/forms/generate", async (req, res) => {
   };
 
   res.json({ uniqueIdentifier });
+});
 
+// Endpoint for submitting form and triggering Shuffle workflow
+app.post("/forms/submit", async (req, res) => {
+  const { formStructure, data } = req.body;
+
+  // Handle form submission (save responses, etc.)
+  // ...
+
+  res.json({ success: true });
+
+  // Trigger Shuffle workflow
   try {
     const { default: fetch } = await import("node-fetch");
     const shuffleApiUrl =
@@ -50,6 +62,7 @@ app.post("/forms/generate", async (req, res) => {
   }
 });
 
+// Endpoint for retrieving form data
 app.get("/forms/:uniqueIdentifier", (req, res) => {
   const uniqueIdentifier = req.params.uniqueIdentifier;
   const formData = formsData[uniqueIdentifier];
@@ -67,17 +80,6 @@ app.get("/forms/:uniqueIdentifier", (req, res) => {
     res.status(404).json({ error: "Form not found." });
   }
 });
-
-app.post(
-  "/api/v1/hooks/webhook_5e6467a6-113b-49df-90d7-4e701fb0d328",
-  (req, res) => {
-    const { form_data, user_input } = req.body;
-
-    console.log("Received form data:", form_data);
-    console.log("Received user input:", user_input);
-    res.json({ success: true });
-  }
-);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -58,7 +58,7 @@ const FormGenerator = () => {
     console.log({ formStructure: addFields, data: data });
     try {
       const response = await axios.post(
-        "https://webform-te9r.onrender.com/forms/generate",
+        "http://43.205.114.60:3005/forms/generate",
         {
           formStructure: addFields,
           data: data,
@@ -181,7 +181,7 @@ const FormGenerator = () => {
               ...field,
               isMultipleOption: isChecked,
               isFile: false,
-              options: isChecked ? [""] : [], // Initialize options if Multiple Options is checked
+              options: isChecked ? [""] : [],
             }
           : field
       );

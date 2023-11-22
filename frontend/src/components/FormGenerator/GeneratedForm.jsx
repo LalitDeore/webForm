@@ -157,7 +157,6 @@ const GeneratedForm = () => {
       if (responseData.success) {
         toast.success("Thank you for submitting the form!");
 
-        // Trigger Shuffle workflow
         try {
           const shuffleResponse = await fetch(
             "https://shuffler.io/api/v1/hooks/webhook_5e6467a6-113b-49df-90d7-4e701fb0d328",
@@ -167,7 +166,7 @@ const GeneratedForm = () => {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                form_data: formData, // Assuming formData is available in your component
+                form_data: formData,
                 user_input: userInput,
               }),
             }

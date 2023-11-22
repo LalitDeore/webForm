@@ -29,16 +29,11 @@ app.post("/forms/generate", async (req, res) => {
   res.json({ uniqueIdentifier });
 });
 
-// Endpoint for submitting form and triggering Shuffle workflow
 app.post("/forms/submit", async (req, res) => {
   const { formStructure, data } = req.body;
 
-  // Handle form submission (save responses, etc.)
-  // ...
-
   res.json({ success: true });
 
-  // Trigger Shuffle workflow
   try {
     const { default: fetch } = await import("node-fetch");
     const shuffleApiUrl =
@@ -62,7 +57,6 @@ app.post("/forms/submit", async (req, res) => {
   }
 });
 
-// Endpoint for retrieving form data
 app.get("/forms/:uniqueIdentifier", (req, res) => {
   const uniqueIdentifier = req.params.uniqueIdentifier;
   const formData = formsData[uniqueIdentifier];
